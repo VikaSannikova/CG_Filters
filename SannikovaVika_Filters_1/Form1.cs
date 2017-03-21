@@ -174,5 +174,18 @@ namespace SannikovaVika_Filters_1
             pictureBox1.Image = MathMorfology.Closing(image, mask);
             pictureBox1.Refresh();
         }
+
+        private void линейноеРастяжениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LinearStretchingFilter filter = new LinearStretchingFilter();
+            filter.FindMaxMin(image);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void медианныйФильтрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MedianFilter(3);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

@@ -11,10 +11,13 @@ namespace SannikovaVika_Filters_1
     abstract class Filters
     {
         protected virtual void BeforeProcessImage(Bitmap sourceImage){ }
-  
-        protected abstract Color calculateNewPixelColor(Bitmap sourseImage, int x, int y);
 
-        public Bitmap processImage(Bitmap sourseImage, BackgroundWorker worker)
+        protected virtual Color calculateNewPixelColor(Bitmap sourseImage, int x, int y)
+        {
+            return Color.Black;
+        }
+
+        public virtual Bitmap processImage(Bitmap sourseImage, BackgroundWorker worker)
         {
             Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
             for (int i = 0; i < sourseImage.Width; i++)
@@ -87,9 +90,9 @@ namespace SannikovaVika_Filters_1
 
     }
 
-   static class MathMorfology
+    abstract class MathMorfology : Filters
     {
-       static  public Bitmap Dilation(Bitmap sourseImage, bool[,] mask/*, BackgroundWorker worker*/)
+      static public Bitmap Dilation(Bitmap sourseImage, bool[,] mask/*, BackgroundWorker worker*/)
         {
             Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
             int maskH = mask.GetLength(0);
@@ -124,7 +127,7 @@ namespace SannikovaVika_Filters_1
             }
             return resultImage;
         }
-       static  public Bitmap Erosion(Bitmap sourseImage, bool[,] mask)
+       static public Bitmap Erosion(Bitmap sourseImage, bool[,] mask)
         {
             Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
             int maskH = mask.GetLength(0);
@@ -160,20 +163,39 @@ namespace SannikovaVika_Filters_1
             return resultImage;
         } 
 
-       static  public Bitmap Opening(Bitmap sourseImage, bool[,] mask)
+       static public Bitmap Opening(Bitmap sourseImage, bool[,] mask)
         {
             Bitmap ResultImage = Erosion(sourseImage, mask);
             ResultImage = Dilation(ResultImage, mask);
             return ResultImage;
         }
 
-        static public Bitmap Closing(Bitmap sourseImage, bool[,] mask)
+     static public Bitmap Closing(Bitmap sourseImage, bool[,] mask)
         {
             Bitmap ResultImage = Dilation(sourseImage, mask);
             ResultImage = Erosion(ResultImage, mask);
             return ResultImage;
         }
     }
+
+    //class TopHat : MathMorfology
+    //{
+    //   public Bitmap DoingTopHat(Bitmap sourseImage, bool[,] mask)
+    //    {
+    //        Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
+    //        Bitmap newImage = new Bitmap(sourseImage.Width, sourseImage.Height);
+    //        newImage = Opening(sourseImage, mask);
+    //        int R, G, B;
+    //        for (int i = 0; i<sourseImage.Width; i++)
+    //            for(int j = 0; j<sourseImage.Height; j++)
+    //            {
+    //                R = sourseImage.GetPixel(i, j).R - newImage.GetPixel(i, j).R;
+    //                G = sourseImage.GetPixel(i, j).G - newImage.GetPixel(i, j).G;
+    //                B = sourseImage.GetPixel(i, j).B - newImage.GetPixel(i, j).B;
+    //                resultImage.SetPixel(i, j, Color.FromArgb(Clamp(R,0,255), Clamp(G,0,255), Clamp(B,0,255)));
+    //            }
+    //        return resultImage;
+    //    }
 
     class BlurFilter : MatrixFilter
     {
@@ -478,4 +500,100 @@ namespace SannikovaVika_Filters_1
         }
     }
 
+    class LinearStretchingFilter : Filters
+    {
+        int minR, maxR, minG, maxG, minB, maxB;
+        public void FindMaxMin(Bitmap sourseImage)
+        {
+            minR = 255; maxR = 0;
+            minG = 255; maxG = 0;
+            minB = 255; maxR = 0;
+            for (int i=0; i<sourseImage.Width; i++)
+                for(int j = 0; j<sourseImage.Height; j++)
+                {
+                    Color sourceColor = sourseImage.GetPixel(i, j);
+                    if (sourceColor.R < minR) { minR = sourceColor.R; }
+                    if (sourceColor.G < minG) { minG = sourceColor.G; }
+                    if (sourceColor.B < minB) { minB = sourceColor.B; }
+                    if (sourceColor.R > maxR) { maxR = sourceColor.R; }
+                    if (sourceColor.G > maxG) { maxG = sourceColor.G; }
+                    if (sourceColor.B > maxB) { maxB = sourceColor.B; }
+                }
+        }
+        protected override Color calculateNewPixelColor(Bitmap sourseImage, int x, int y)
+        {
+            int R = (sourseImage.GetPixel(x, y).R - minR) * (255 / (maxR - minR));
+            int G = (sourseImage.GetPixel(x, y).G - minG) * (255 / (maxG - minG));
+            int B = (sourseImage.GetPixel(x, y).B - minB) * (255 / (maxB - minB));
+            Color col = Color.FromArgb(R, G, B);
+            return col;
+        }
+    }
+
+    class MedianFilter : MatrixFilter
+    {
+        public MedianFilter(int n)
+        {
+            kernel = new float[n, n];
+        }
+
+        static void Qsort(int[] a, int l, int r)
+        {
+            int x = a[l + (r - l) / 2];
+            int i = l;
+            int j = r;
+            while (i <= j)
+            {
+                while (a[i] < x) i++;
+                while (a[j] > x) j--;
+                if (i <= j)
+                {
+                    int tmp = a[i];
+                    a[i] = a[j];
+                    a[j] = tmp;
+                    i++;
+                    j--;
+                }
+            }
+            if (i < r)
+                Qsort(a, i, r);
+
+            if (l < j)
+                Qsort(a, l, j);
+        }
+
+        protected override Color calculateNewPixelColor(Bitmap sourseImage, int x, int y)
+        {
+            int radX = kernel.GetLength(0) / 2;
+            int radY = kernel.GetLength(1) / 2;
+            int kol = kernel.GetLength(0) * kernel.GetLength(1);
+            float resultR = 0, resultG = 0, resultB = 0;
+            int[] cR = new int[kol];
+            int[] cB = new int[kol];
+            int[] cG = new int[kol];
+            int g = 0;
+            for (int l = -radY; l <= radY; l++)
+                for (int k = -radX; k <= radX; k++)
+                {
+                    int idX = Clamp(x + k, radX, sourseImage.Width - radX);
+                    int idY = Clamp(y + l, radY, sourseImage.Height - radY);
+                    Color c = sourseImage.GetPixel(idX, idY);
+                    cR[g] = c.R;
+                    cG[g] = c.G;
+                    cB[g] = c.B;
+                    g++;
+                }
+            Qsort(cR, 0, kol - 1);
+            Qsort(cG, 0, kol - 1);
+            Qsort(cB, 0, kol - 1);
+            int med = (int)(kol / 2) + 1;
+            resultR = cR[med];
+            resultG = cG[med];
+            resultB = cB[med];
+            return Color.FromArgb(Clamp((int)resultR, 0, 255),
+                                  Clamp((int)resultG, 0, 255),
+                                  Clamp((int)resultB, 0, 255)
+    );
+        }
+    }
 }

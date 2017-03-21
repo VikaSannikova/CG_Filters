@@ -7,3 +7,15 @@ c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Fi
 c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.csproj.GenerateResource.Cache
 c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.exe
 c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.pdb
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.exe.config
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.exe
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.pdb
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.exe
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.pdb
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.csprojResolveAssemblyReference.cache
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.Form1.resources
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.Properties.Resources.resources
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\Новая папка\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.csproj.GenerateResource.Cache
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\VikaSannikova_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.exe.config
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\VikaSannikova_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.exe
+C:\Users\Виктория\Documents\Visual Studio 2015\Projects\VikaSannikova_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.pdb
