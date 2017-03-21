@@ -1,0 +1,9 @@
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.exe.config
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.exe
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\bin\Debug\SannikovaVika_Filters_1.pdb
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.csprojResolveAssemblyReference.cache
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.Form1.resources
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.Properties.Resources.resources
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.csproj.GenerateResource.Cache
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.exe
+c:\users\виктория\documents\visual studio 2015\Projects\SannikovaVika_Filters_1\SannikovaVika_Filters_1\obj\Debug\SannikovaVika_Filters_1.pdb
