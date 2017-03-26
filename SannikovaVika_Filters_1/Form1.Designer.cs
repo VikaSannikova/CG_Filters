@@ -53,13 +53,28 @@
             this.медианныйФильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.матМорфологияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расширниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.крестик3х3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат3х3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат5х5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сужениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.крестик3х3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат3х3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат5х5ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.отрытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.крестик3х3ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат3х3ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат5х5ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.закрытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.крестик3х3ToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат3х3ToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат5х5ToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gradToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.крестик3х3ToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат3х3ToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.квадрат5х5ToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button1 = new System.Windows.Forms.Button();
-            this.gradToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -266,31 +281,159 @@
             // 
             // расширниеToolStripMenuItem
             // 
+            this.расширниеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.крестик3х3ToolStripMenuItem,
+            this.квадрат3х3ToolStripMenuItem,
+            this.квадрат5х5ToolStripMenuItem});
             this.расширниеToolStripMenuItem.Name = "расширниеToolStripMenuItem";
             this.расширниеToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.расширниеToolStripMenuItem.Text = "Расширние ";
-            this.расширниеToolStripMenuItem.Click += new System.EventHandler(this.расширниеToolStripMenuItem_Click);
+            // 
+            // крестик3х3ToolStripMenuItem
+            // 
+            this.крестик3х3ToolStripMenuItem.Name = "крестик3х3ToolStripMenuItem";
+            this.крестик3х3ToolStripMenuItem.Size = new System.Drawing.Size(196, 30);
+            this.крестик3х3ToolStripMenuItem.Text = "Крестик 3х3";
+            this.крестик3х3ToolStripMenuItem.Click += new System.EventHandler(this.крестик3х3ToolStripMenuItem_Click);
+            // 
+            // квадрат3х3ToolStripMenuItem
+            // 
+            this.квадрат3х3ToolStripMenuItem.Name = "квадрат3х3ToolStripMenuItem";
+            this.квадрат3х3ToolStripMenuItem.Size = new System.Drawing.Size(196, 30);
+            this.квадрат3х3ToolStripMenuItem.Text = "Квадрат 3х3";
+            this.квадрат3х3ToolStripMenuItem.Click += new System.EventHandler(this.квадрат3х3ToolStripMenuItem_Click);
+            // 
+            // квадрат5х5ToolStripMenuItem
+            // 
+            this.квадрат5х5ToolStripMenuItem.Name = "квадрат5х5ToolStripMenuItem";
+            this.квадрат5х5ToolStripMenuItem.Size = new System.Drawing.Size(196, 30);
+            this.квадрат5х5ToolStripMenuItem.Text = "Квадрат 5х5";
+            this.квадрат5х5ToolStripMenuItem.Click += new System.EventHandler(this.квадрат5х5ToolStripMenuItem_Click);
             // 
             // сужениеToolStripMenuItem
             // 
+            this.сужениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.крестик3х3ToolStripMenuItem1,
+            this.квадрат3х3ToolStripMenuItem1,
+            this.квадрат5х5ToolStripMenuItem1});
             this.сужениеToolStripMenuItem.Name = "сужениеToolStripMenuItem";
             this.сужениеToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.сужениеToolStripMenuItem.Text = "Сужение";
-            this.сужениеToolStripMenuItem.Click += new System.EventHandler(this.сужениеToolStripMenuItem_Click);
+            // 
+            // крестик3х3ToolStripMenuItem1
+            // 
+            this.крестик3х3ToolStripMenuItem1.Name = "крестик3х3ToolStripMenuItem1";
+            this.крестик3х3ToolStripMenuItem1.Size = new System.Drawing.Size(196, 30);
+            this.крестик3х3ToolStripMenuItem1.Text = "Крестик 3х3";
+            this.крестик3х3ToolStripMenuItem1.Click += new System.EventHandler(this.крестик3х3ToolStripMenuItem1_Click);
+            // 
+            // квадрат3х3ToolStripMenuItem1
+            // 
+            this.квадрат3х3ToolStripMenuItem1.Name = "квадрат3х3ToolStripMenuItem1";
+            this.квадрат3х3ToolStripMenuItem1.Size = new System.Drawing.Size(196, 30);
+            this.квадрат3х3ToolStripMenuItem1.Text = "Квадрат 3х3";
+            this.квадрат3х3ToolStripMenuItem1.Click += new System.EventHandler(this.квадрат3х3ToolStripMenuItem1_Click);
+            // 
+            // квадрат5х5ToolStripMenuItem1
+            // 
+            this.квадрат5х5ToolStripMenuItem1.Name = "квадрат5х5ToolStripMenuItem1";
+            this.квадрат5х5ToolStripMenuItem1.Size = new System.Drawing.Size(196, 30);
+            this.квадрат5х5ToolStripMenuItem1.Text = "Квадрат 5х5";
+            this.квадрат5х5ToolStripMenuItem1.Click += new System.EventHandler(this.квадрат5х5ToolStripMenuItem1_Click);
             // 
             // отрытиеToolStripMenuItem
             // 
+            this.отрытиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.крестик3х3ToolStripMenuItem2,
+            this.квадрат3х3ToolStripMenuItem2,
+            this.квадрат5х5ToolStripMenuItem2});
             this.отрытиеToolStripMenuItem.Name = "отрытиеToolStripMenuItem";
             this.отрытиеToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.отрытиеToolStripMenuItem.Text = "Отрытие";
-            this.отрытиеToolStripMenuItem.Click += new System.EventHandler(this.отрытиеToolStripMenuItem_Click);
+            // 
+            // крестик3х3ToolStripMenuItem2
+            // 
+            this.крестик3х3ToolStripMenuItem2.Name = "крестик3х3ToolStripMenuItem2";
+            this.крестик3х3ToolStripMenuItem2.Size = new System.Drawing.Size(196, 30);
+            this.крестик3х3ToolStripMenuItem2.Text = "Крестик 3х3";
+            this.крестик3х3ToolStripMenuItem2.Click += new System.EventHandler(this.крестик3х3ToolStripMenuItem2_Click);
+            // 
+            // квадрат3х3ToolStripMenuItem2
+            // 
+            this.квадрат3х3ToolStripMenuItem2.Name = "квадрат3х3ToolStripMenuItem2";
+            this.квадрат3х3ToolStripMenuItem2.Size = new System.Drawing.Size(196, 30);
+            this.квадрат3х3ToolStripMenuItem2.Text = "Квадрат 3х3";
+            this.квадрат3х3ToolStripMenuItem2.Click += new System.EventHandler(this.квадрат3х3ToolStripMenuItem2_Click);
+            // 
+            // квадрат5х5ToolStripMenuItem2
+            // 
+            this.квадрат5х5ToolStripMenuItem2.Name = "квадрат5х5ToolStripMenuItem2";
+            this.квадрат5х5ToolStripMenuItem2.Size = new System.Drawing.Size(196, 30);
+            this.квадрат5х5ToolStripMenuItem2.Text = "Квадрат 5х5";
+            this.квадрат5х5ToolStripMenuItem2.Click += new System.EventHandler(this.квадрат5х5ToolStripMenuItem2_Click);
             // 
             // закрытиеToolStripMenuItem
             // 
+            this.закрытиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.крестик3х3ToolStripMenuItem3,
+            this.квадрат3х3ToolStripMenuItem3,
+            this.квадрат5х5ToolStripMenuItem3});
             this.закрытиеToolStripMenuItem.Name = "закрытиеToolStripMenuItem";
             this.закрытиеToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.закрытиеToolStripMenuItem.Text = "Закрытие";
-            this.закрытиеToolStripMenuItem.Click += new System.EventHandler(this.закрытиеToolStripMenuItem_Click);
+            // 
+            // крестик3х3ToolStripMenuItem3
+            // 
+            this.крестик3х3ToolStripMenuItem3.Name = "крестик3х3ToolStripMenuItem3";
+            this.крестик3х3ToolStripMenuItem3.Size = new System.Drawing.Size(196, 30);
+            this.крестик3х3ToolStripMenuItem3.Text = "Крестик 3х3";
+            this.крестик3х3ToolStripMenuItem3.Click += new System.EventHandler(this.крестик3х3ToolStripMenuItem3_Click);
+            // 
+            // квадрат3х3ToolStripMenuItem3
+            // 
+            this.квадрат3х3ToolStripMenuItem3.Name = "квадрат3х3ToolStripMenuItem3";
+            this.квадрат3х3ToolStripMenuItem3.Size = new System.Drawing.Size(196, 30);
+            this.квадрат3х3ToolStripMenuItem3.Text = "Квадрат 3х3";
+            this.квадрат3х3ToolStripMenuItem3.Click += new System.EventHandler(this.квадрат3х3ToolStripMenuItem3_Click);
+            // 
+            // квадрат5х5ToolStripMenuItem3
+            // 
+            this.квадрат5х5ToolStripMenuItem3.Name = "квадрат5х5ToolStripMenuItem3";
+            this.квадрат5х5ToolStripMenuItem3.Size = new System.Drawing.Size(196, 30);
+            this.квадрат5х5ToolStripMenuItem3.Text = "Квадрат 5х5";
+            this.квадрат5х5ToolStripMenuItem3.Click += new System.EventHandler(this.квадрат5х5ToolStripMenuItem3_Click);
+            // 
+            // gradToolStripMenuItem
+            // 
+            this.gradToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.крестик3х3ToolStripMenuItem4,
+            this.квадрат3х3ToolStripMenuItem4,
+            this.квадрат5х5ToolStripMenuItem4});
+            this.gradToolStripMenuItem.Name = "gradToolStripMenuItem";
+            this.gradToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.gradToolStripMenuItem.Text = "Grad";
+           
+            // 
+            // крестик3х3ToolStripMenuItem4
+            // 
+            this.крестик3х3ToolStripMenuItem4.Name = "крестик3х3ToolStripMenuItem4";
+            this.крестик3х3ToolStripMenuItem4.Size = new System.Drawing.Size(211, 30);
+            this.крестик3х3ToolStripMenuItem4.Text = "Крестик 3х3";
+            this.крестик3х3ToolStripMenuItem4.Click += new System.EventHandler(this.крестик3х3ToolStripMenuItem4_Click);
+            // 
+            // квадрат3х3ToolStripMenuItem4
+            // 
+            this.квадрат3х3ToolStripMenuItem4.Name = "квадрат3х3ToolStripMenuItem4";
+            this.квадрат3х3ToolStripMenuItem4.Size = new System.Drawing.Size(211, 30);
+            this.квадрат3х3ToolStripMenuItem4.Text = "Квадрат 3х3";
+            this.квадрат3х3ToolStripMenuItem4.Click += new System.EventHandler(this.квадрат3х3ToolStripMenuItem4_Click);
+            // 
+            // квадрат5х5ToolStripMenuItem4
+            // 
+            this.квадрат5х5ToolStripMenuItem4.Name = "квадрат5х5ToolStripMenuItem4";
+            this.квадрат5х5ToolStripMenuItem4.Size = new System.Drawing.Size(211, 30);
+            this.квадрат5х5ToolStripMenuItem4.Text = "Квадрат 5х5";
+            this.квадрат5х5ToolStripMenuItem4.Click += new System.EventHandler(this.квадрат5х5ToolStripMenuItem4_Click);
             // 
             // progressBar1
             // 
@@ -317,13 +460,6 @@
             this.button1.Text = "Отмена";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // gradToolStripMenuItem
-            // 
-            this.gradToolStripMenuItem.Name = "gradToolStripMenuItem";
-            this.gradToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
-            this.gradToolStripMenuItem.Text = "Grad";
-            this.gradToolStripMenuItem.Click += new System.EventHandler(this.gradToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -379,6 +515,21 @@
         private System.Windows.Forms.ToolStripMenuItem линейноеРастяжениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem медианныйФильтрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gradToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem крестик3х3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem квадрат3х3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem квадрат5х5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem крестик3х3ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem квадрат3х3ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem квадрат5х5ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem крестик3х3ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem квадрат3х3ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem квадрат5х5ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem крестик3х3ToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem квадрат3х3ToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem квадрат5х5ToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem крестик3х3ToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem квадрат3х3ToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem квадрат5х5ToolStripMenuItem4;
     }
 }
 

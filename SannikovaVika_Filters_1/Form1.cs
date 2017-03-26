@@ -147,34 +147,6 @@ namespace SannikovaVika_Filters_1
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-        private void расширниеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
-            pictureBox1.Image = MathMorfology.Dilation(image, mask);
-            pictureBox1.Refresh();
-        }
-
-        private void сужениеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
-            pictureBox1.Image = MathMorfology.Erosion(image, mask);
-            pictureBox1.Refresh();
-        }
-
-        private void отрытиеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
-            pictureBox1.Image = MathMorfology.Opening(image, mask);
-            pictureBox1.Refresh();
-        }
-
-        private void закрытиеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
-            pictureBox1.Image = MathMorfology.Closing(image, mask);
-            pictureBox1.Refresh();
-        }
-
         private void линейноеРастяжениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LinearStretchingFilter filter = new LinearStretchingFilter();
@@ -188,16 +160,143 @@ namespace SannikovaVika_Filters_1
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-        private void gradToolStripMenuItem_Click(object sender, EventArgs e)
+        //private void gradToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+        //    pictureBox1.Image = MathMorfology.GradFilter(image, mask);
+        //    pictureBox1.Refresh();
+        //}
+
+        //расширение
+        private void крестик3х3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { false, true, false }, 
+                                             { true, true, true }, 
+                                            { false, true, false } };
+            pictureBox1.Image = MathMorfology.Dilation(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат3х3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { true, true, true }, 
+                                            { true, true, true }, 
+                                            { true, true, true } };
+            pictureBox1.Image = MathMorfology.Dilation(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат5х5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[5, 5] { { true, true, true, true, true }, 
+                                            { true, true, true, true, true }, 
+                                            { true, true, true, true, true }, 
+                                            { true, true, true, true, true }, 
+                                            { true, true, true, true, true } };
+            pictureBox1.Image = MathMorfology.Dilation(image, mask);
+            pictureBox1.Refresh();
+        }
+
+        //сужение
+        private void крестик3х3ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+            pictureBox1.Image = MathMorfology.Erosion(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат3х3ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { true, true, true },
+                                            { true, true, true },
+                                            { true, true, true } };
+            pictureBox1.Image = MathMorfology.Erosion(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат5х5ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[5, 5] { { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true } };
+            pictureBox1.Image = MathMorfology.Erosion(image, mask);
+            pictureBox1.Refresh();
+        }
+
+        //открытие
+        private void крестик3х3ToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+            pictureBox1.Image = MathMorfology.Opening(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат3х3ToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { true, true, true },
+                                            { true, true, true },
+                                            { true, true, true } };
+            pictureBox1.Image = MathMorfology.Opening(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат5х5ToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[5, 5] { { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true } };
+            pictureBox1.Image = MathMorfology.Opening(image, mask);
+            pictureBox1.Refresh();
+        }
+
+        //закрытие
+        private void крестик3х3ToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+            pictureBox1.Image = MathMorfology.Closing(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат3х3ToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { true, true, true },
+                                            { true, true, true },
+                                            { true, true, true } };
+            pictureBox1.Image = MathMorfology.Closing(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат5х5ToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[5, 5] { { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true } };
+            pictureBox1.Image = MathMorfology.Closing(image, mask);
+            pictureBox1.Refresh();
+        }
+
+        //gradient
+        private void крестик3х3ToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
             pictureBox1.Image = MathMorfology.GradFilter(image, mask);
             pictureBox1.Refresh();
-            //Filters filter = new GradFilter();
-           //backgroundWorker1.RunWorkerAsync(filter);
-           // GradFilter filter = new GradFilter();
-           // filter.DoingGradFilter(image,mask);
-          //backgroundWorker1.RunWorkerAsync(filter);
+        }
+        private void квадрат3х3ToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { true, true, true },
+                                            { true, true, true },
+                                            { true, true, true } };
+            pictureBox1.Image = MathMorfology.GradFilter(image, mask);
+            pictureBox1.Refresh();
+        }
+        private void квадрат5х5ToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[5, 5] { { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true },
+                                            { true, true, true, true, true } };
+            pictureBox1.Image = MathMorfology.GradFilter(image, mask);
+            pictureBox1.Refresh();
         }
     }
 }
