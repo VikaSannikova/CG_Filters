@@ -187,5 +187,17 @@ namespace SannikovaVika_Filters_1
             Filters filter = new MedianFilter(3);
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void gradToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+            pictureBox1.Image = MathMorfology.GradFilter(image, mask);
+            pictureBox1.Refresh();
+            //Filters filter = new GradFilter();
+           //backgroundWorker1.RunWorkerAsync(filter);
+           // GradFilter filter = new GradFilter();
+           // filter.DoingGradFilter(image,mask);
+          //backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

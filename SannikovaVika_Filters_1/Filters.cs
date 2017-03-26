@@ -92,7 +92,16 @@ namespace SannikovaVika_Filters_1
 
     abstract class MathMorfology : Filters
     {
-      static public Bitmap Dilation(Bitmap sourseImage, bool[,] mask/*, BackgroundWorker worker*/)
+        //bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+
+       static public int Clamp(int value, int min, int max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
+
+        static public Bitmap Dilation(Bitmap sourseImage, bool[,] mask/*, BackgroundWorker worker*/)
         {
             Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
             int maskH = mask.GetLength(0);
@@ -163,7 +172,7 @@ namespace SannikovaVika_Filters_1
             return resultImage;
         } 
 
-       static public Bitmap Opening(Bitmap sourseImage, bool[,] mask)
+       static public Bitmap Opening(Bitmap sourseImage, bool[,] mask )
         {
             Bitmap ResultImage = Erosion(sourseImage, mask);
             ResultImage = Dilation(ResultImage, mask);
@@ -176,11 +185,37 @@ namespace SannikovaVika_Filters_1
             ResultImage = Erosion(ResultImage, mask);
             return ResultImage;
         }
+
+      static public Bitmap GradFilter(Bitmap sourseImage, bool[,] mask /*,BackgroundWorker worker*/)
+        {
+            Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
+            Bitmap newImage1 = new Bitmap(sourseImage.Width, sourseImage.Height);
+            Bitmap newImage2 = new Bitmap(sourseImage.Width, sourseImage.Height);
+            newImage1 = Dilation(sourseImage, mask);
+            newImage2 = Erosion(sourseImage, mask);
+            int R, G, B;
+            for (int i = 0; i < sourseImage.Width; i++)
+            {
+                //worker.ReportProgress(66 + (int)(33 * i / resultImage.Width));
+                for (int j = 0; j < sourseImage.Height; j++)
+                {
+                    R = newImage1.GetPixel(i, j).R - newImage2.GetPixel(i, j).R;
+                    G = newImage1.GetPixel(i, j).G - newImage2.GetPixel(i, j).G;
+                    B = newImage1.GetPixel(i, j).B - newImage2.GetPixel(i, j).B;
+                    R = Clamp(R, 0, 255);
+                    G = Clamp(G, 0, 255);
+                    B = Clamp(B, 0, 255);
+                    resultImage.SetPixel(i, j, Color.FromArgb(R, G, B));
+                }
+            }
+            return resultImage;
+        }
+
     }
 
     //class TopHat : MathMorfology
     //{
-    //   public Bitmap DoingTopHat(Bitmap sourseImage, bool[,] mask)
+    //   puassblic Bitmap DoingTopHat(Bitmap sourseImage, bool[,] mask)
     //    {
     //        Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
     //        Bitmap newImage = new Bitmap(sourseImage.Width, sourseImage.Height);
@@ -196,6 +231,35 @@ namespace SannikovaVika_Filters_1
     //            }
     //        return resultImage;
     //    }
+
+    class GradFilter : MathMorfology
+    {
+       public Bitmap DoingGradFilter(Bitmap sourseImage, bool [,] mask /*,BackgroundWorker worker*/)
+        {
+
+            Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
+            Bitmap newImage1 = new Bitmap(sourseImage.Width, sourseImage.Height);
+            Bitmap newImage2 = new Bitmap(sourseImage.Width, sourseImage.Height);
+            newImage1 = Dilation(sourseImage, mask);
+            newImage2 = Erosion(sourseImage, mask);
+            int R, G, B;
+            for (int i = 0; i < sourseImage.Width; i++)
+            {
+                //worker.ReportProgress(66 + (int)(33 * i / resultImage.Width));
+                for (int j = 0; j < sourseImage.Height; j++)
+                {
+                    R = newImage1.GetPixel(i, j).R - newImage2.GetPixel(i, j).R;
+                    G = newImage1.GetPixel(i, j).G - newImage2.GetPixel(i, j).G;
+                    B = newImage1.GetPixel(i, j).B - newImage2.GetPixel(i, j).B;
+                    R = Clamp(R, 0, 255);
+                    G = Clamp(G, 0, 255);
+                    B = Clamp(B, 0, 255);
+                    resultImage.SetPixel(i, j, Color.FromArgb(R, G, B));
+                }
+            }
+            return resultImage;
+        }
+    }
 
     class BlurFilter : MatrixFilter
     {
@@ -384,7 +448,7 @@ namespace SannikovaVika_Filters_1
     {
         protected override Color calculateNewPixelColor(Bitmap sourseImage, int x, int y)
         {
-            Random randomX = new Random(x*60);
+            Random randomX = new Random(x*60); //вне этой функции
             Random randomY = new Random(y*60);
             int newX = (int)(x + ((double)(randomX.Next(10)%2) - 0.5) * 10);
             int newY = (int)(y + ((double)(randomY.Next(10)%2) - 0.5) * 10);
