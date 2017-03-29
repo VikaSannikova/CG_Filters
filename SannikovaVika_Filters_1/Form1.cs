@@ -298,5 +298,39 @@ namespace SannikovaVika_Filters_1
             pictureBox1.Image = MathMorfology.GradFilter(image, mask);
             pictureBox1.Refresh();
         }
+
+        private void newFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] mask = new bool[3, 3] { { false, true, false }, { true, true, true }, { false, true, false } };
+            Bitmap resultImage = new Bitmap(image.Width, image.Height);
+            Bitmap newImage1 = new Bitmap(image.Width, image.Height);
+            Bitmap newImage2 = new Bitmap(image.Width, image.Height);
+            newImage2 = MathMorfology.GradFilter(image, mask);
+            Filters filter = new SobelFilter();
+            newImage1 = filter.processImage(image);
+            int R, G, B;
+
+            for (int i = 0; i < image.Width; i++)
+            {
+                for (int j = 0; j < image.Height; j++)
+                {
+                    R = newImage1.GetPixel(i, j).R - newImage2.GetPixel(i, j).R;
+                    G = newImage1.GetPixel(i, j).G - newImage2.GetPixel(i, j).G;
+                    B = newImage1.GetPixel(i, j).B - newImage2.GetPixel(i, j).B;
+                    R = Clamp(R, 0, 255);
+                    G = Clamp(G, 0, 255);
+                    B = Clamp(B, 0, 255);
+                    resultImage.SetPixel(i, j, Color.FromArgb(R, G, B));
+                }
+            }
+            pictureBox1.Image = resultImage;
+            pictureBox1.Refresh();
+        }
+        public int Clamp(int value, int min, int max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
     }
 }

@@ -33,6 +33,19 @@ namespace SannikovaVika_Filters_1
             return resultImage;
         }
 
+        public virtual Bitmap processImage(Bitmap sourseImage)
+        {
+            Bitmap resultImage = new Bitmap(sourseImage.Width, sourseImage.Height);
+            for (int i = 0; i < sourseImage.Width; i++)
+            {
+                for (int j = 0; j < sourseImage.Height; j++)
+                {
+                    resultImage.SetPixel(i, j, calculateNewPixelColor(sourseImage, i, j));
+                }
+            }
+            return resultImage;
+        }
+
         public int Clamp (int value, int min, int max)
         {
             if (value < min) return min;
@@ -261,6 +274,7 @@ namespace SannikovaVika_Filters_1
         }
     }
 
+
     class BlurFilter : MatrixFilter
     {
         public BlurFilter()
@@ -339,8 +353,8 @@ namespace SannikovaVika_Filters_1
             Color sourseColor = sourseImage.GetPixel(x, y);
             int k = 30;
             Color resultColor = Color.FromArgb(Clamp(sourseColor.R+k,0,255),
-                                               Clamp(sourseColor.B+k,0,255),
-                                               Clamp(sourseColor.G+k,0,255));
+                                               Clamp(sourseColor.G+k,0,255),
+                                               Clamp(sourseColor.B+k,0,255));
             return resultColor;
         }
     }
@@ -446,12 +460,12 @@ namespace SannikovaVika_Filters_1
 
     class GlassEffectFilter : Filters
     {
+        Random randomX = new Random(); 
         protected override Color calculateNewPixelColor(Bitmap sourseImage, int x, int y)
         {
-            Random randomX = new Random(x*60); //вне этой функции
-            Random randomY = new Random(y*60);
+            
             int newX = (int)(x + ((double)(randomX.Next(10)%2) - 0.5) * 10);
-            int newY = (int)(y + ((double)(randomY.Next(10)%2) - 0.5) * 10);
+            int newY = (int)(y + ((double)(randomX.Next(10)%2) - 0.5) * 10);
             double resultR, resultG, resultB;
             if (newY < 0 || newY >= sourseImage.Height || newX < 0 || newX >= sourseImage.Width)
             {

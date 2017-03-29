@@ -75,6 +75,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button1 = new System.Windows.Forms.Button();
+            this.newFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +112,7 @@
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(167, 30);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
@@ -120,7 +121,8 @@
             this.фильтрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.точечныеToolStripMenuItem,
             this.матричныеToolStripMenuItem,
-            this.матМорфологияToolStripMenuItem});
+            this.матМорфологияToolStripMenuItem,
+            this.newFilterToolStripMenuItem});
             this.фильтрыToolStripMenuItem.Name = "фильтрыToolStripMenuItem";
             this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(96, 29);
             this.фильтрыToolStripMenuItem.Text = "Фильтры";
@@ -412,26 +414,25 @@
             this.gradToolStripMenuItem.Name = "gradToolStripMenuItem";
             this.gradToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.gradToolStripMenuItem.Text = "Grad";
-           
             // 
             // крестик3х3ToolStripMenuItem4
             // 
             this.крестик3х3ToolStripMenuItem4.Name = "крестик3х3ToolStripMenuItem4";
-            this.крестик3х3ToolStripMenuItem4.Size = new System.Drawing.Size(211, 30);
+            this.крестик3х3ToolStripMenuItem4.Size = new System.Drawing.Size(196, 30);
             this.крестик3х3ToolStripMenuItem4.Text = "Крестик 3х3";
             this.крестик3х3ToolStripMenuItem4.Click += new System.EventHandler(this.крестик3х3ToolStripMenuItem4_Click);
             // 
             // квадрат3х3ToolStripMenuItem4
             // 
             this.квадрат3х3ToolStripMenuItem4.Name = "квадрат3х3ToolStripMenuItem4";
-            this.квадрат3х3ToolStripMenuItem4.Size = new System.Drawing.Size(211, 30);
+            this.квадрат3х3ToolStripMenuItem4.Size = new System.Drawing.Size(196, 30);
             this.квадрат3х3ToolStripMenuItem4.Text = "Квадрат 3х3";
             this.квадрат3х3ToolStripMenuItem4.Click += new System.EventHandler(this.квадрат3х3ToolStripMenuItem4_Click);
             // 
             // квадрат5х5ToolStripMenuItem4
             // 
             this.квадрат5х5ToolStripMenuItem4.Name = "квадрат5х5ToolStripMenuItem4";
-            this.квадрат5х5ToolStripMenuItem4.Size = new System.Drawing.Size(211, 30);
+            this.квадрат5х5ToolStripMenuItem4.Size = new System.Drawing.Size(196, 30);
             this.квадрат5х5ToolStripMenuItem4.Text = "Квадрат 5х5";
             this.квадрат5х5ToolStripMenuItem4.Click += new System.EventHandler(this.квадрат5х5ToolStripMenuItem4_Click);
             // 
@@ -460,6 +461,13 @@
             this.button1.Text = "Отмена";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // newFilterToolStripMenuItem
+            // 
+            this.newFilterToolStripMenuItem.Name = "newFilterToolStripMenuItem";
+            this.newFilterToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.newFilterToolStripMenuItem.Text = "NewFilter";
+            this.newFilterToolStripMenuItem.Click += new System.EventHandler(this.newFilterToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -530,6 +538,7 @@
         private System.Windows.Forms.ToolStripMenuItem крестик3х3ToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem квадрат3х3ToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem квадрат5х5ToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem newFilterToolStripMenuItem;
     }
 }
 
